@@ -9,4 +9,10 @@
 //Write result in first input field
 //Append result to list
 //Scroll list to last 4 results
+
+//Clickable again
+
+//Clicks "clear"
+//Clear List (keep result in input)
+
 //Clickable again
