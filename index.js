@@ -13,7 +13,7 @@ let liId;
 let roundedValue;
 let roundedId;
 let roundedAmount;
-let li;
+let liPlace;
 
 //Click "Calculate"
 //Read first number
@@ -89,18 +89,17 @@ function listScroll() {
 document.querySelector("#clear").addEventListener("click", clearList);
 //Clear List (keep result in input)
 function clearList() {
-  li = ul.getElementsByTagName("li");
-  // console.log(li.length);
-  // if (li.length > 4) {
-  //   ul.removeChild(ul.lastElementChild);
-  // }
-  // console.log(ul.lastElementChild.textContent);
+  liPlace = ul.getElementsByTagName("li");
   console.log("clear");
-  while (true) {
-    console.log("here?");
-    if (li <= 4) {
-      break;
-    }
-    ul.removeChild(ul.lastElementChild);
-  }
+  console.log(liPlace);
+  // while (true) {
+  //   if (liPlace <= 4) {
+  //     break;
+  //   }
+  //   removeHere;
+  // }
 }
+
+// function removeHere() {
+//   li.ul.removeChild(ul.lastElementChild);
+// }
