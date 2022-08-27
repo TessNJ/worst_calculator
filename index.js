@@ -7,6 +7,13 @@ let resultValue;
 let operatorID;
 let operatorResult;
 let newResult;
+let ul = document.getElementById("results");
+let liCreate;
+let liId;
+let roundedValue;
+let roundedId;
+let roundedAmount;
+let li;
 
 //Click "Calculate"
 //Read first number
@@ -25,7 +32,7 @@ function readSecond() {
 function readOperator() {
   operatorID = document.getElementById("operator");
   operatorResult = operatorID.options[operatorID.selectedIndex].text;
-  //   console.log(operatorResult);
+  console.log(operatorResult);
   calculateValue();
 }
 
@@ -33,12 +40,27 @@ function readOperator() {
 function calculateValue() {
   newResult = firstValue + operatorResult + secondValue;
   newResult = eval(newResult);
-  //   console.log(newResult);
-  printValue();
+  // printValue();
+  roundCheck();
 }
 //Check if rounded clicked
+function roundCheck() {
+  roundedValue = document.querySelector("#doround");
+  if (roundedValue.checked === true) {
+    roundDo();
+  } else {
+    printValue();
+  }
+}
 
 //If Yes the Round (If no skip)
+function roundDo() {
+  roundedId = document.getElementById("decimals");
+  roundedAmount = roundedId.options[roundedId.selectedIndex].text;
+  newResult = newResult.toFixed(roundedAmount);
+  // console.log(newResult);
+  printValue();
+}
 
 //Write result in first input field
 function printValue() {
@@ -47,16 +69,38 @@ function printValue() {
 }
 //Append result to list
 function listResult() {
-  document.querySelector("#results :nth-child(4)").textContent = newResult;
-  console.log("works ?");
+  liCreate = document.createElement("li");
+  liId = parseInt(ul.lastElementChild.id);
+  liId = liId + 1;
+
+  liCreate.appendChild(document.createTextNode(newResult));
+  liCreate.setAttribute("id", liId);
+  ul.appendChild(liCreate);
+
+  listScroll();
 }
 //Scroll list to last 4 results
-
+function listScroll() {
+  ul.scrollTop = liCreate.offsetTop - 50;
+}
 ////////////////************/////////////////////
 
-//Clickable again
-
 //Clicks "clear"
+document.querySelector("#clear").addEventListener("click", clearList);
 //Clear List (keep result in input)
-
-//Clickable again
+function clearList() {
+  li = ul.getElementsByTagName("li");
+  // console.log(li.length);
+  // if (li.length > 4) {
+  //   ul.removeChild(ul.lastElementChild);
+  // }
+  // console.log(ul.lastElementChild.textContent);
+  console.log("clear");
+  while (true) {
+    console.log("here?");
+    if (li <= 4) {
+      break;
+    }
+    ul.removeChild(ul.lastElementChild);
+  }
+}
