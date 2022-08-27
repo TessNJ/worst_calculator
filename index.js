@@ -91,9 +91,10 @@ document.querySelector("#clear").addEventListener("click", clearList);
 function clearList() {
   liPlace = ul.getElementsByTagName("li");
   console.log("clear");
-  console.log(liPlace);
+  console.log(liPlace.length);
+  // ul.removeChild(ul.lastElementChild);
   // while (true) {
-  //   if (liPlace <= 4) {
+  //   if (liPlace.length <= 4) {
   //     break;
   //   }
   //   removeHere;
@@ -101,5 +102,5 @@ function clearList() {
 }
 
 // function removeHere() {
-//   li.ul.removeChild(ul.lastElementChild);
+//   ul.removeChild(ul.lastElementChild);
 // }
