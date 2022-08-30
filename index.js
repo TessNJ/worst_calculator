@@ -70,13 +70,8 @@ function printValue() {
 //Append result to list
 function listResult() {
   liCreate = document.createElement("li");
-  liId = parseInt(ul.lastElementChild.id);
-  liId = liId + 1;
-
-  liCreate.appendChild(document.createTextNode(newResult));
-  liCreate.setAttribute("id", liId);
+  liCreate.textContent = newResult;
   ul.appendChild(liCreate);
-
   listScroll();
 }
 //Scroll list to last 4 results
@@ -89,16 +84,9 @@ function listScroll() {
 document.querySelector("#clear").addEventListener("click", clearList);
 //Clear List (keep result in input)
 function clearList() {
-  liPlace = ul.getElementsByTagName("li");
-  console.log("clear");
-  console.log(liPlace.length);
-  // ul.removeChild(ul.lastElementChild);
-  // while (true) {
-  //   if (liPlace.length <= 4) {
-  //     break;
-  //   }
-  //   removeHere;
-  // }
+  while (ul.hasChildNodes()) {
+    ul.removeChild(ul.firstChild);
+  }
 }
 
 // function removeHere() {
