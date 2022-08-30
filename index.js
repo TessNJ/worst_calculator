@@ -88,7 +88,3 @@ function clearList() {
     ul.removeChild(ul.firstChild);
   }
 }
-
-// function removeHere() {
-//   ul.removeChild(ul.lastElementChild);
-// }
