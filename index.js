@@ -89,16 +89,9 @@ function listScroll() {
 document.querySelector("#clear").addEventListener("click", clearList);
 //Clear List (keep result in input)
 function clearList() {
-  liPlace = ul.getElementsByTagName("li");
-  console.log("clear");
-  console.log(liPlace.length);
-  // ul.removeChild(ul.lastElementChild);
-  // while (true) {
-  //   if (liPlace.length <= 4) {
-  //     break;
-  //   }
-  //   removeHere;
-  // }
+  while (ul.hasChildNodes()) {
+    ul.removeChild(ul.firstChild);
+  }
 }
 
 // function removeHere() {
