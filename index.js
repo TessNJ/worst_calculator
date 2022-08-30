@@ -70,13 +70,8 @@ function printValue() {
 //Append result to list
 function listResult() {
   liCreate = document.createElement("li");
-  liId = parseInt(ul.lastElementChild.id);
-  liId = liId + 1;
-
-  liCreate.appendChild(document.createTextNode(newResult));
-  liCreate.setAttribute("id", liId);
+  liCreate.textContent = newResult;
   ul.appendChild(liCreate);
-
   listScroll();
 }
 //Scroll list to last 4 results
